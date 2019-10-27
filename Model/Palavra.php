@@ -1,5 +1,5 @@
     <?php
-
+    require_once('connection.php');
     class Palavra{
         private $idPalavra;
         private $descricao;
@@ -13,15 +13,17 @@
             return $palavra;
         }
 
-        function cadastraPalavra($descricao, $idCategoria){
-            require_once('connection.php');
-        
+        public function cadastraPalavra($descricao, $idCategoria){
+            
+            $this->$descricao = $descricao;
+            $this->$idCategoria = $idCategoria;
+            
             $bd = BD::connection();
             $sql = $bd->prepare("INSERT INTO palavra 
                                       VALUES (NULL,:descricao,:idCategoria)");
             
-            $sql->bindValue(':descricao', $descricao);
-            $sql->bindValue(':idCategoria', $idCategoria);
+            $sql->bindValue(':descricao', $this->descricao);
+            $sql->bindValue(':idCategoria', $this->idCategoria);
             
 
             return $sql->execute();
@@ -30,8 +32,8 @@
         }   
     
     
-        function buscaPalavraTodas(){
-            require_once('connection.php');
+        public function buscaPalavraTodas(){
+            // require_once('connection.php');
             $bd = BD::connection();
             $sql = $bd->prepare("SELECT p.descricao AS palavra
                                       , c.descricao as categoria
@@ -43,6 +45,27 @@
             return $sql->fetchAll();
         }  
 
+        public function qntPalavras(){
+            $bd = BD::connection();
+            $sql = $bd->prepare("SELECT COUNT(1) AS qnt FROM palavra");
+            $sql->execute();
+            return $sql->fetch();
+
+        }
+
+        public function buscaPalavra($idPalavra){
+            $bd = BD::connection();
+
+            $sql = $bd->prepare("SELECT p.descricao AS plvr
+                                      , c.descricao AS cat
+                                   FROM palavra p
+                                   JOIN categoria c ON c.idCategoria = p.idCategoria
+                                   WHERE idPalavra = :idPalavra");
+
+            $sql->bindValue(':idPalavra', $idPalavra);      
+            $sql->execute();
+            return $sql->fetchObject();                         
+        }
 
     }
 ?>

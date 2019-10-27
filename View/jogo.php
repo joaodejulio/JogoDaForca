@@ -15,6 +15,7 @@
     <meta name="googlebot" content="noindex, nofollow">
 
     <!-- importação js -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="../assets/js/jogo.js"></script>
 
     <!-- bootstrap 5 -->
@@ -31,7 +32,7 @@
 
     $palavra = "batata";
     $tamanho = strlen($palavra);
-    $categoria = "Categoria";
+    $categoria = "AVES";
     $hp = 6;
     
     ?>
@@ -50,14 +51,18 @@
         O jogador possuí 6 chances de errar a letra que compõe a palavra.
         <br>
         O jogo acaba com o acerto da palavra ou com o término das chances do jogador.
+        <br>
+        Clique em Novo jogo para iniciar.
         <br><br>
         Boa sorte!
         <br>
     </p>
     
     <form action="jogo.php">
-
+        
         <main>
+        <input type="text" name="palavra" id="palavra" >
+
 
             <div>
                 <p>Palavra: </p>
@@ -102,9 +107,10 @@
                 <?php } ?>
             </div>
 
-            <div class="btn-group" role="group" aria-label="Exemplo básico">
-                <button type="button" class="btn btn-outline-primary">Novo jogo</button>
-                <button type="button" class="btn btn-danger">Sair</button>
+            <div class="btn-group" role="group">
+               
+                <button type="button" class="btn btn-outline-primary" onclick="novoJogo()" id="novo_jogo">Novo jogo</button>
+                <button type="button" class="btn btn-danger"  id="sair" >Sair</button>
             </div>
 
         </main>  
