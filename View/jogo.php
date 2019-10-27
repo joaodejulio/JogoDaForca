@@ -15,11 +15,11 @@
     <meta name="googlebot" content="noindex, nofollow">
 
     <!-- importação js -->
-    <script type="text/javascript" src="js/jogo.js"></script>
+    <script type="text/javascript" src="../assets/js/jogo.js"></script>
 
     <!-- bootstrap 5 -->
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="assets/css/jogo.style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/jogo.style.css">
 
     <?php
 
@@ -41,7 +41,7 @@
 <body type="text/html">
 
     <h1>Jogo da Forca</h1>
-    <p> <img src="assets/img/forca.gif" alt="Forca" id="forca"> </p>                
+    <p> <img src="../assets/img/forca.gif" alt="Forca" id="forca"> </p>                
     <h2>Como jogar?</h2>
     <br>
     <p>
@@ -94,7 +94,7 @@
 
                         <?php
 
-                            echo "<li> <img src='assets/img/hp.png' alt='chances' id='hp'> </li>";
+                            echo "<li> <img src='../assets/img/hp.png' alt='chances' id='hp'> </li>";
                     
                         ?> 
 
