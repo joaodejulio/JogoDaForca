@@ -61,7 +61,6 @@
     <form action="jogo.php">
         
         <main>
-        <input type="text" name="palavra" id="palavra" >
 
 
             <div>
