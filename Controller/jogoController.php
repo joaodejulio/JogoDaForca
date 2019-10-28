@@ -1,5 +1,7 @@
 <?php
 require_once("../Model/Palavra.php");
+$x;
+$y;
 
     $jogo = new jogoController;
 
@@ -24,6 +26,15 @@ require_once("../Model/Palavra.php");
             
             $resPalavra = $res->buscaPalavra($sorteada);
             $tamanho['tam'] = strlen($resPalavra->plvr);
+
+
+
+            $x = $resPalavra->plvr;
+            $y = $resPalavra->cat;
+            
+            var_dump($x);
+
+
             header('Content-Type: text/json');
         
             $resposta = (object) array_merge((array) $resPalavra, $tamanho);

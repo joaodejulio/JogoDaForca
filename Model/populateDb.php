@@ -2,9 +2,9 @@
 
    require_once ("connection.php");
    try{
-    //    $tUsuario = addUsuarios(); 
-    //    $categoria = addCategoria();
-       $palavra = addPalavra();
+        $tUsuario = addUsuarios(); 
+        $categoria = addCategoria();
+    //   $palavra = addPalavra();
        
     }catch(PDOException $e){
         die($e->getMessage());
