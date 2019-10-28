@@ -1,8 +1,17 @@
 <?php
 require_once("../Model/Palavra.php");
 
-$jogo = new jogoController;
-$teste = $jogo->sorteiaPalavra();
+    $jogo = new jogoController;
+
+    switch ($_GET['op']) {
+        case '1':
+            $jogo->sorteiaPalavra();
+            break;
+        case '2':
+            $jogo->verificaLetra();
+      
+    }
+
 
     class jogoController{
         private $palavra;
@@ -23,7 +32,8 @@ $teste = $jogo->sorteiaPalavra();
         }
     
         function verificaLetra(){
-
+            echo 'teste';
+            var_dump($_GET);
         }
     
     }

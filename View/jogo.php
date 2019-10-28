@@ -88,7 +88,7 @@
 
                 <label id="label_letra">Letra:</label>
                 <input type="text" class="form-control form-control mx-sm-3" id="input_letra">
-                <button type="button" class="btn btn-primary" onclick="sayHello()" id="button_letra">Enviar</button>
+                <button type="button" class="btn btn-primary" onclick="verificaLetra(this.form.input_letra.value)" id="button_letra">Enviar</button>
                 <br>
 
             </div>
