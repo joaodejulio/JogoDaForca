@@ -61,17 +61,11 @@
 
 
 	<br>
-	<div class="form-check">
-	    <label class="form-check-label">
-	        <input class="form-check-input" type="checkbox" name="politica_de_privacidade" value="1" required> Aceito a 
-	        <a href="politica_privacidade.html">Política de Privacidade</a> 
-	        da empresa
-	    </label>
-	</div>	
+	
 
     <button type="submit" class="btn btn-primary" name="salvar" id="btSalvar">Enviar</button>
 	
-	<a href="index.html"><button class="btn btn-warning" type="button" name="voltar">Voltar</button></a>
+	<a href="index.php"><button class="btn btn-warning" type="button" name="voltar">Voltar</button></a>
 
 
 

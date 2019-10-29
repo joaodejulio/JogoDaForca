@@ -1,0 +1,11 @@
+
+colocar mais categorias
+
+cadastrar um admin
+
+arrumar registre-se no index
+
+cadastro palavra
+
+excluir palavra botão
+

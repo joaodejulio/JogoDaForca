@@ -21,7 +21,10 @@ if($_SESSION["logado"] != "true") {
 
     <title>Forca | Cadastro de Palavra</title>
 
-    <!-- Favicon -->
+	<script type="text/javascript" src="../assets/js/jogo.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+	<!-- Favicon -->
     <link rel="shortcut icon" href="../assets/img/favicon2.ico" type="image/x-icon">
 
     <!-- Theme color -->
@@ -75,14 +78,15 @@ if($_SESSION["logado"] != "true") {
 
     <button type="submit" class="btn btn-primary" name="salvar" id="btSalvar">Enviar</button>
 	
-	<a href="index.php"><button class="btn btn-warning" type="button" name="voltar">Voltar</button></a>
+	<button class="btn btn-danger" type="button" name="voltar" onclick="logout()">Sair</button>
+</form>
 
-
-
+<form id="frmCadastro" action="../Controller/cadPalavra.php" method="post">
+	<input type="hidden" id="op" name="op" value="2"> 	
 	<table>
 		<tr>
 			<th>Palavra</th>
-			<th>Categoria</th>
+			<th style="padding-right: 15px;">Categoria </th>
 		</tr>
 		
 		
@@ -92,14 +96,16 @@ if($_SESSION["logado"] != "true") {
 				$resPalavra = buscatodas();
 				foreach ($resPalavra as $palavra) {
 					echo '<tr>';
-					echo '<td>' . $palavra['palavra']. '</td>';
-					echo '<td>' . $palavra['categoria']. '</td>';
+					echo "<td style='padding-right: 15px;'>" . $palavra['palavra']. '</td>';
+					echo "<td style='padding-right: 15px;'>" . $palavra['categoria']. '</td>';
+					echo "<td><button class='btn btn-danger'> X </button></td>";
 					echo '<br>';
 					echo '</tr>';	 						
 				}
 			?>
 		
 	</table>
+</form >
 
 </body>
 </html>
