@@ -13,14 +13,13 @@
     
     
     function addUsuarios(){
-        // require_once ("connection.php");
 
         $bd = BD::connection(); 
 
         $sql = $bd->prepare("INSERT INTO usuario (idUsuario, nome, apelido, sexo, email, senha, idtipoUsuario) 
-                                   VALUES (NULL, 'jogador', 'jog', 'm', 'jog@forca', '1234', '2');
+                                   VALUES (NULL, 'jogador', 'jogador', 'm', 'jogador@forca', '1234', '2');
                             INSERT INTO usuario (idUsuario, nome, apelido, sexo, email, senha, idtipoUsuario) 
-                                   VALUES (NULL, 'administrador', 'admin', 'm', 'admin@forca', 'qwert', '1' 
+                                   VALUES (NULL, 'administrador', 'admin', 'm', 'admin@forca', 'admin', '1' 
                             ");
 
         if($sql-> execute()){
@@ -31,14 +30,13 @@
     }
 
     function addTiposUsuarios(){
-        // require_once ("connection.php");
 
         $bd = BD::connection(); 
 
         $sql = $bd->prepare("INSERT INTO tipousuario (idTipoUsuario, descricao) 
-                                   VALUES (NULL, 'administrador');
+                                   VALUES (NULL, 'Administrador');
                             INSERT INTO tipousuario (idTipoUsuario, descricao) 
-                                   VALUES (NULL, 'jogador'); 
+                                   VALUES (NULL, 'Jogador'); 
                             ");
 
         if($sql-> execute()){
@@ -49,15 +47,19 @@
     }
 
     function addCategoria(){
-        // require_once ('connection.php');
 
         $bd = BD::connection();
-        // require ('connection.php');
         $sql = $bd->prepare("INSERT INTO categoria (idCategoria, descricao) 
                                   VALUES (NULL, 'Aves');
                             INSERT INTO categoria (idCategoria, descricao)
-                                  VALUES (NULL, 'Frutas');"
-            );
+                                  VALUES (NULL, 'Répteis');
+                            INSERT INTO categoria (idCategoria, descricao)
+                                  VALUES (NULL, 'Peixes');
+                            INSERT INTO categoria (idCategoria, descricao)
+                                  VALUES (NULL, 'Mamiferos');
+                            INSERT INTO categoria (idCategoria, descricao)
+                                  VALUES (NULL, 'Anfíbios');
+                                  ");
 
         if($sql-> execute()){
             echo 'categorias de palavras adicionado com sucesso! <br>'; 
@@ -68,19 +70,19 @@
 
 
     function addPalavra(){
-        // require_once ('connection.php');
 
         $bd = BD::connection();
-        // require ('connection.php');
         $sql = $bd->prepare("INSERT INTO palavra (idPalavra, descricao, idCategoria) 
                                   VALUES (NULL, 'aguia', 1);
                              INSERT INTO palavra (idPalavra, descricao, idCategoria) 
-                                  VALUES (NULL, 'pavao', 1);
+                                  VALUES (NULL, 'lagarto', 2);
                              INSERT INTO palavra (idPalavra, descricao, idCategoria) 
-                                  VALUES (NULL, 'mamao', 2);
+                                  VALUES (NULL, 'baiacu', 3);
                              INSERT INTO palavra (idPalavra, descricao, idCategoria) 
-                                  VALUES (NULL, 'abacaxi', 2);"
-            );
+                                  VALUES (NULL, 'cachorro', 4);
+                             INSERT INTO palavra (idPalavra, descricao, idCategoria) 
+                                  VALUES (NULL, 'sapo', 5);
+                           ");
 
         if($sql-> execute()){
             echo 'palavras adicionadas com sucesso! <br>'; 

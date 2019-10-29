@@ -47,19 +47,19 @@
             <div class="form-group">
                         <input type="hidden" id="op" name="op" value="1">  
                         <label for="username" class="control-label">Nome de Usuário</label>
-                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Insira seu nome de usuário" placeholder="joao">
+                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Insira seu nome de usuário" placeholder="Apelido">
                         <span class="help-block"></span>
                     </div>
                     <div class="form-group">
                         <label for="pw" class="control-label">Senha</label>
-                        <input type="password" class="form-control" id="pw" name="pw" value="" required title="Digite sua senha" placeholder="joao">
+                        <input type="password" class="form-control" id="pw" name="pw" value="" required title="Digite sua senha" placeholder="Senha">
                         <span class="help-block"></span>
                     </div>
                     
                     <!--onClick="logar()" no botao entrar-->
                     <button type="submit" class="btn btn-success btn-block">Entrar</button>
-                    <a href="../View/cadastroUsuario.ph"><button type="submit" class="btn btn-default btn-block">Registre-se</button></a>
                 </form>
+                <a href="../View/cadastroUsuario.php"><button type="submit" class="btn btn-default btn-block">Registre-se</button></a>
             </div>
         </div>
         <div class="col-sm-3" style="background-color:lavender;"></div>

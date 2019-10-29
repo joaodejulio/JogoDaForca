@@ -47,21 +47,6 @@
 
             if($sql-> execute()) echo 'tabela palavra criada com sucesso!<br>';
 
-        $sql = $bd->prepare("CREATE TABLE IF NOT EXISTS  partida (
-                            idPartida int AUTO_INCREMENT not null,
-                            idPalavra int not null references palavra(idPalavra),
-                            chances int not null,
-                            palavraFinal varchar(50) not null,
-                            idUsuario int not null references usuario(idUsuario),
-                            iniPartida datetime not null default CURRENT_TIMESTAMP,
-                            fimPartida datetime not null default CURRENT_TIMESTAMP,
-                            PRIMARY KEY (idPartida)
-                            )"
-            );
-
-            if($sql-> execute()) echo 'tabela partida criada com sucesso!<br>';
-
-
         
     }catch(PDOException $e){
         die($e->getMessage());

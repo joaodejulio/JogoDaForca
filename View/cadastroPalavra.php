@@ -96,9 +96,10 @@ if($_SESSION["logado"] != "true") {
 				$resPalavra = buscatodas();
 				foreach ($resPalavra as $palavra) {
 					echo '<tr>';
-					echo "<td style='padding-right: 15px;'>" . $palavra['palavra']. '</td>';
-					echo "<td style='padding-right: 15px;'>" . $palavra['categoria']. '</td>';
-					echo "<td><button class='btn btn-danger'> X </button></td>";
+					echo "<td style='padding-right: 15px;'> <input readonly='true' name= 'id' id='id' value= '" . $palavra['id']. "'> </td>";
+					echo "<td style='padding-right: 15px;'> <input readonly='true' name= 'palavra' id='palavra' value= '" . $palavra['palavra']. "'> </td>";
+					echo "<td style='padding-right: 15px;'> <input readonly='true' name= 'cat' id='cat' value= '" . $palavra['categoria']. "'> </td>";
+					echo "<td><button type='submit' class='btn btn-danger'> X </button></td>";
 					echo '<br>';
 					echo '</tr>';	 						
 				}

@@ -8,13 +8,18 @@
       $descricao = $_POST['descricao'];
       $categoria =(int) $_POST['categoria'];
 
+   
       $res = $model->cadastraPalavra($descricao,$categoria);
-      echo '<pre>';
-      var_dump($res);
-    }else {
-      // $res = $model->buscaPalavraTodas();
-      // return $res; 
-      // print_r($res);
+      if($res){
+        header("Location: ../view/cadastroPalavra.php");
+      }
+
+    }else if($_POST['op'] == 2) {
+      $idPalavra = $_POST['id'];
+
+      $res = $model->ExcluiPalavra($idPalavra);
+      if(!$res) header("Location: ../view/cadastroPalavra.php");
+      // print_r($_POST);
     }
       
   }
