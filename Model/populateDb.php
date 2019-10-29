@@ -2,9 +2,10 @@
 
    require_once ("connection.php");
    try{
-    //    $tUsuario = addUsuarios(); 
-    //    $categoria = addCategoria();
+       $usuario = addUsuarios(); 
+       $categoria = addCategoria();
        $palavra = addPalavra();
+       $tUsuario = addTiposUsuarios();
        
     }catch(PDOException $e){
         die($e->getMessage());
@@ -23,11 +24,30 @@
                             ");
 
         if($sql-> execute()){
-            echo 'tipos de usuarios adicionado com sucesso! <br>'; 
+            echo 'usuarios adicionados com sucesso! <br>'; 
             return true;
         } 
         else return false;
     }
+
+    function addTiposUsuarios(){
+        // require_once ("connection.php");
+
+        $bd = BD::connection(); 
+
+        $sql = $bd->prepare("INSERT INTO tipousuario (idTipoUsuario, descricao) 
+                                   VALUES (NULL, 'administrador');
+                            INSERT INTO tipousuario (idTipoUsuario, descricao) 
+                                   VALUES (NULL, 'jogador'); 
+                            ");
+
+        if($sql-> execute()){
+            echo 'tipos de usuarios adicionados com sucesso! <br>'; 
+            return true;
+        } 
+        else return false;
+    }
+
     function addCategoria(){
         // require_once ('connection.php');
 
@@ -63,7 +83,7 @@
             );
 
         if($sql-> execute()){
-            echo 'categorias de palavras adicionado com sucesso! <br>'; 
+            echo 'palavras adicionadas com sucesso! <br>'; 
             return true;
         } 
         else return false;
