@@ -30,11 +30,6 @@
         session_destroy();
     }
 
-    $palavra = "batata";
-    $tamanho = strlen($palavra);
-    $categoria = "AVES";
-    $hp = 6;
-    
     ?>
 
 </head>
@@ -42,74 +37,48 @@
 <body type="text/html">
 
     <h1>Jogo da Forca</h1>
-    <p> <img src="../assets/img/forca.gif" alt="Forca" id="forca"> </p>                
-    <h2>Como jogar?</h2>
-    <br>
-    <p>
-        O jogador deve acertar a palavra sorteada, tendo como dica o número de letras e a categoria da palavra.
-        <br>
-        O jogador possuí 6 chances de errar a letra que compõe a palavra.
-        <br>
-        O jogo acaba com o acerto da palavra ou com o término das chances do jogador.
-        <br>
-        Clique em Novo jogo para iniciar.
-        <br><br>
-        Boa sorte!
-        <br>
+    <p> <img src="../assets/img/forca.gif" alt="Forca" id="forca"></p>
+    <p><button type="button" class="btn btn-outline-primary" onclick="comoJogar()" id="novo_jogo">Como jogar?</button>
     </p>
     
     <form action="jogo.php">
-        
+    
         <main>
 
-
+        <input type="hidden" id="palavra">
+        <input type="hidden" id="hidden_hp">
             <div>
                 <p>Palavra: </p>
-                <?php
-                    for($i = 1; $i <= $tamanho; $i++){
-                    ?>     
-                        <ul id="palavra">
-
-                            <?php
-
-                                echo "<li> <h2> _ </h2> </li>";
-                        
-                            ?> 
-
-                        </ul>
-                    <?php
-                    }
-                ?>
-                <br><small><?= $categoria ?></small>      
+                <div id = "div_Word">
+                    <label> Pressione 'Novo jogo'</label>
+                </div>
+                
+                
+                <br><div id="cat"><small><strong>Categoria</strong></small></div>      
             </div>
 
             <div>
 
                 <label id="label_letra">Letra:</label>
                 <input type="text" class="form-control form-control mx-sm-3" id="input_letra">
-                <button type="button" class="btn btn-primary" onclick="verificaLetra(this.form.input_letra.value)" id="button_letra">Enviar</button>
+                <button type="button" class="btn btn-primary" onclick="verificaLetra(this.form.input_letra.value, this.form.palavra.value, this.form.h_word.value, this.form.hidden_hp.value)" id="button_letra">Enviar</button>
                 <br>
 
             </div>
-   
+            
             <div>
-                <?php for($i = 1; $i <= $hp; $i++){ ?>     
-                    <ul id="palavra">
-
-                        <?php
-
-                            echo "<li> <img src='../assets/img/hp.png' alt='chances' id='hp'> </li>";
-                    
-                        ?> 
-
-                    </ul>
-                <?php } ?>
+                <div style="display:inline-block;" id="div_hp1"></div>
+                <div style="display:inline-block;" id="div_hp2"></div>
+                <div style="display:inline-block;" id="div_hp3"></div>
+                <div style="display:inline-block;" id="div_hp4"></div>
+                <div style="display:inline-block;" id="div_hp5"></div>
+                <div style="display:inline-block;" id="div_hp6"></div>
             </div>
-
+            
             <div class="btn-group" role="group">
                
                 <button type="button" class="btn btn-outline-primary" onclick="novoJogo()" id="novo_jogo">Novo jogo</button>
-                <button type="button" class="btn btn-danger"  id="sair" >Sair</button>
+                <button type="button" class="btn btn-danger" onclick="logout()" id="sair" >Sair</button>
             </div>
 
         </main>  
